@@ -9,6 +9,7 @@ public class CoolerCookieClicker : MonoBehaviour
     public Text currencytext;
     public double currency;
     public double currencyclickvalue;
+    public double currencypersecond;
 
     public Text currencyPerSecondText;
     public Text clickUpgrade1Text;
@@ -43,12 +44,17 @@ public class CoolerCookieClicker : MonoBehaviour
         passivePowerGenerationRate = productionUpgradeLevel;
         currencyPerPower = 0.12;
 
+        //currencypersecond new variable
+        currencypersecond = (passivePowerGenerationRate + activePowerGenerationRate) * currencyPerPower;
+
         // TODO seperate this code onto the menus themselves, or at least separate function
         // update UI
-        currencytext.text = "Currency:  " + currency.ToString("F0");
-        currencyPerSecondText.text = currencyPerPower.ToString("F0") + "currency/s";
-        clickUpgrade1Text.text = "Click Upgrade 1\nCost:" + clickUpgrade1Cost.ToString("F0") + "currency\nPower: +1 Click\nLevel: " + clickUpgradeLevel;
-        productionUpgrade1Text.text = "Production Upgrade 1\nCost: " + productionUpgradeCost.ToString("F0") + "currency\nPower: +1 Currency/s\nLevel: " + productionUpgradeLevel;
+        currencytext.text = "Currency:  " + currency.ToString("F2");
+
+        //currencyPerSecondText.text = currencyPerPower.ToString("F0") + "currency/s";
+        currencyPerSecondText.text = currencypersecond.ToString("F2") + "currency/s";
+        clickUpgrade1Text.text = "Click Upgrade 1\nCost:" + clickUpgrade1Cost.ToString("F2") + "currency\nPower: +1 Click\nLevel: " + clickUpgradeLevel;
+        productionUpgrade1Text.text = "Production Upgrade 1\nCost: " + productionUpgradeCost.ToString("F2") + "currency\nPower: +1 Currency/s\nLevel: " + productionUpgradeLevel;
 
         // update currency (passive kWh + active kWh) * $/kWh * time
         currency += (passivePowerGenerationRate + activePowerGenerationRate) * currencyPerPower * Time.deltaTime;
