@@ -544,12 +544,12 @@ PrefabInstance:
     - target: {fileID: 7916486701069249486, guid: 273aa4b29767974439135629d87b12ed,
         type: 3}
       propertyPath: hurdle_interval
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7916486701069249486, guid: 273aa4b29767974439135629d87b12ed,
         type: 3}
       propertyPath: randomizer_max_param
-      value: 1.25
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7916486702636698097, guid: 273aa4b29767974439135629d87b12ed,
         type: 3}

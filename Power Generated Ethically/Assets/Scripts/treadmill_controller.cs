@@ -15,7 +15,7 @@ public class treadmill_controller : MonoBehaviour
     void Start()
     {
         time = 0.0f;
-        randomizer = Random.Range(-randomizer_max_param, randomizer_max_param);
+        randomizer = Random.Range(0, randomizer_max_param);
     }
 
     // Update is called once per frame
@@ -26,7 +26,7 @@ public class treadmill_controller : MonoBehaviour
         {
             SpawnHurdle();
             time = 0;
-            randomizer = Random.Range(-randomizer_max_param, randomizer_max_param); //reset the randomizer
+            randomizer = Random.Range(0, randomizer_max_param); //reset the randomizer
         }
     }
 
