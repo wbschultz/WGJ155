@@ -27,6 +27,9 @@ public class CoolerCookieClicker : MonoBehaviour
     // called before first frame update
     public void Start()
     {
+        // TODO: make active power gen look at treadmill game
+        activePowerGenerationRate = 0.2;
+
         currencyclickvalue += 1;
         currency = 0;
         productionUpgradeCost = 25;
@@ -36,8 +39,9 @@ public class CoolerCookieClicker : MonoBehaviour
     // called every frame
     public void Update()
     {
-        // set initial passive power rate
-        currencyPerPower = productionUpgradeLevel;
+        // set initial passive power rate and price
+        passivePowerGenerationRate = productionUpgradeLevel;
+        currencyPerPower = 0.12;
 
         // TODO seperate this code onto the menus themselves, or at least separate function
         // update UI
