@@ -26,7 +26,7 @@ public class PassiveUnit : MonoBehaviour
     {
         // initialize passive generation rate
         TotalPowerRate = powerRatePerQuantity * quantity;
-        updateUI();
+        UpdateUI();
     }
 
     /// <summary>
@@ -51,14 +51,32 @@ public class PassiveUnit : MonoBehaviour
                 resourceManager.unitList.Add(unitType, this);
             }
             // update the UI
-            updateUI();
+            UpdateUI();
         }
+    }
+
+    /// <summary>
+    /// multiply price by rate modifier
+    /// </summary>
+    /// <param name="modifier">decimal multiplier for price</param>
+    void PriceMultiply(float modifier)
+    {
+        priceToPurchase *= modifier;
+    }
+
+    /// <summary>
+    /// multiply power generation by rate modifier
+    /// </summary>
+    /// <param name="modifier">decimal modifier for power generation</param>
+    void PowerRateUp(float modifier)
+    {
+        powerRatePerQuantity *= modifier;
     }
 
     /// <summary>
     /// update the UI display for this unit
     /// </summary>
-    public void updateUI()
+    public void UpdateUI()
     {
         unitButtonText.text = unitType + 
             "\nCost: $" + priceToPurchase.ToString("F2") + 
