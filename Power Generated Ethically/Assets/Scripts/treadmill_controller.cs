@@ -4,25 +4,28 @@ using UnityEngine;
 
 public class treadmill_controller : MonoBehaviour
 {
-    public GameObject hurdle;
-    public Transform hurdle_spawn;
+    public GameObject hurdle, belt;
+    public Transform hurdle_spawn, belt_spawn;
 
-    private float time;
-    public float hurdle_interval; //how much time (midpoint) do hurdles spawn
-    public float randomizer_max_param;
+    public float speed; //speed controls the speed of the belt and obstacles
+    private float time; //used for tracking time between obstacle spawns
+    public float hurdle_interval; //how much time (minimum) do hurdles spawn
+    public float randomizer_max_param; //tweakable parameter for randomizer
     private float randomizer;
-    // Start is called before the first frame update
+    
+
     void Start()
     {
         time = 0.0f;
-        randomizer = Random.Range(0, randomizer_max_param);
+        randomizer = Random.Range(0, randomizer_max_param); //add a bit of variation of obstacle spawn-time
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         time += Time.deltaTime;
-        if (time >= hurdle_interval + randomizer)
+        if (time >= hurdle_interval + randomizer) //if time is >= to the spawn-time, then spawn obstacle
         {
             SpawnHurdle();
             time = 0;
@@ -33,5 +36,10 @@ public class treadmill_controller : MonoBehaviour
     public void SpawnHurdle()
     {
         Instantiate(hurdle, hurdle_spawn.position, hurdle_spawn.rotation);
+    }
+    public void SpawnBelt()
+    {
+        Instantiate(belt, belt_spawn.position, belt_spawn.rotation);
+        
     }
 }

@@ -6,14 +6,18 @@ public class human_controller : MonoBehaviour
 {
 
     public Transform ground_detection;
-    public float detection_radius;
+    public float detection_radius ,hurdle_detection_radius;
     private Controls controls;
     private Rigidbody2D rb;
+
+    public float speed_penalty;
+    private treadmill_controller treadmill;
 
     public float jump_force;
     private bool can_jump;
     void Awake()
     {
+        treadmill = GameObject.FindGameObjectWithTag("ground").GetComponent<treadmill_controller>();
         rb = GetComponent<Rigidbody2D>();
         controls = new Controls();
         controls.Gameplay.Jump.performed += lmd => Jump();
@@ -21,6 +25,7 @@ public class human_controller : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        //Floor detection
         Collider2D[] collisions = Physics2D.OverlapCircleAll(ground_detection.position, detection_radius);
         can_jump = false;
         foreach(Collider2D col in collisions)
@@ -28,6 +33,19 @@ public class human_controller : MonoBehaviour
             if (col.tag == "ground")
             {
                 can_jump = true;
+            }
+        }
+
+        //Hurdle Detection
+        Collider2D[] hurdle_collisions = Physics2D.OverlapBoxAll(transform.position, new Vector2(transform.lossyScale.x * 4 + 0.01f, transform.lossyScale.y * 4), 0);
+        foreach (Collider2D col in hurdle_collisions)
+        {
+            if (col.tag == "hurdle")
+            {
+                print("COLLIDED!");
+                Destroy(col.gameObject);
+                if (treadmill.speed - speed_penalty > 5)
+                    treadmill.speed -= speed_penalty;
             }
         }
     }
@@ -44,6 +62,8 @@ public class human_controller : MonoBehaviour
     private void OnDisable() => controls.Gameplay.Disable();
     private void OnDrawGizmos()
     {
-        Gizmos.DrawSphere(ground_detection.position, detection_radius);
+        Gizmos.DrawWireCube(transform.position, new Vector3(transform.lossyScale.x * 4 + 0.01f, transform.lossyScale.y * 4, 1));
+        Gizmos.DrawWireSphere(ground_detection.position, detection_radius);
     }
+    
 }
