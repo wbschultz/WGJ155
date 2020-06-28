@@ -42,7 +42,7 @@ public class PassiveUnit : MonoBehaviour
             resourceManager.currency -= priceToPurchase;
             quantity++;
             // increase price
-            priceToPurchase *= 1.07d;
+            priceToPurchase *= priceGrowthRate;
             // update the power gen rate
             TotalPowerRate = powerRatePerQuantity * quantity;
             // if there isn't a reference to that unit yet, add it
