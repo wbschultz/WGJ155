@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CoolerCookieClicker : MonoBehaviour
+public class CoolerCookieClicker : SingletonBase<CoolerCookieClicker>
 {
     // Text is in reference to the UI element "Text"
     public Text currencytext;
@@ -13,7 +13,6 @@ public class CoolerCookieClicker : MonoBehaviour
 
     public Text currencyPerSecondText;
     public Text clickUpgrade1Text;
-    public Text productionUpgrade1Text;
 
     public double passivePowerGenerationRate;   // rate of passive power gen (units)
     public double activePowerGenerationRate;    // rate of active power gen (treadmill)
@@ -25,11 +24,17 @@ public class CoolerCookieClicker : MonoBehaviour
     public double productionUpgradeCost;
     public int productionUpgradeLevel = 0;
 
+    // store reference to each generator type that has been purchased
+    public Dictionary<string, PassiveUnit> unitList = new Dictionary<string, PassiveUnit>();
+
     // called before first frame update
     public void Start()
     {
         // TODO: make active power gen look at treadmill game
         activePowerGenerationRate = 0.2;
+
+        // set initial  price
+        currencyPerPower = 0.12;
 
         currencyclickvalue += 1;
         currency = 0;
@@ -40,9 +45,12 @@ public class CoolerCookieClicker : MonoBehaviour
     // called every frame
     public void Update()
     {
-        // set initial passive power rate and price
-        passivePowerGenerationRate = productionUpgradeLevel;
-        currencyPerPower = 0.12;
+        // sum all generation rates
+        passivePowerGenerationRate = 0;
+        foreach (KeyValuePair<string, PassiveUnit> kvp in unitList)
+        {
+            passivePowerGenerationRate += kvp.Value.TotalPowerRate;
+        }
 
         //currencypersecond new variable
         currencypersecond = (passivePowerGenerationRate + activePowerGenerationRate) * currencyPerPower;
@@ -54,11 +62,13 @@ public class CoolerCookieClicker : MonoBehaviour
         //currencyPerSecondText.text = currencyPerPower.ToString("F0") + "currency/s";
         currencyPerSecondText.text = currencypersecond.ToString("F2") + "currency/s";
         clickUpgrade1Text.text = "Click Upgrade 1\nCost:" + clickUpgrade1Cost.ToString("F2") + "currency\nPower: +1 Click\nLevel: " + clickUpgradeLevel;
-        productionUpgrade1Text.text = "Production Upgrade 1\nCost: " + productionUpgradeCost.ToString("F2") + "currency\nPower: +1 Currency/s\nLevel: " + productionUpgradeLevel;
+        //productionUpgrade1Text.text = "Production Upgrade 1\nCost: " + productionUpgradeCost.ToString("F2") + "currency\nPower: +1 Currency/s\nLevel: " + productionUpgradeLevel;
 
         // update currency (passive kWh + active kWh) * $/kWh * time
         currency += (passivePowerGenerationRate + activePowerGenerationRate) * currencyPerPower * Time.deltaTime;
     }
+
+    // =============================================temporary stuff=================================================================
 
     // TODO: Change this to a rate linked to the jumping game
     /// <summary>
