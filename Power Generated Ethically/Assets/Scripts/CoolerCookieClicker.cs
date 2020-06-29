@@ -15,9 +15,7 @@ public class CoolerCookieClicker : SingletonBase<CoolerCookieClicker>
 
     public Text DollarsPerSecond;
     public Text PowerPerSecondText;
-    public Text clickUpgrade1Text;
     public Text ConversationRateText;
-    public Text KilowattHourspersecond;
     public Text TotalPowerText;
 
     public double passivePowerGenerationRate;   // rate of passive power gen (units)
@@ -80,7 +78,6 @@ public class CoolerCookieClicker : SingletonBase<CoolerCookieClicker>
 
         //added by Jason. text field that allows us to see current Kwh / s. 
         PowerPerSecondText.text = powerpersecond.ToString("F2") + " kWh/s";
-        clickUpgrade1Text.text = "Click Upgrade 1\nCost:" + clickUpgrade1Cost.ToString("F2") + "currency\nPower: +1 Click\nLevel: " + clickUpgradeLevel;
         //productionUpgrade1Text.text = "Production Upgrade 1\nCost: " + productionUpgradeCost.ToString("F2") + "currency\nPower: +1 Currency/s\nLevel: " + productionUpgradeLevel;
 
         // update currency (passive kWh + active kWh) * $/kWh * time
