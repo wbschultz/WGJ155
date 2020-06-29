@@ -19,7 +19,14 @@ public class PassiveUnit : MonoBehaviour
 
     [Header("UI Elements")]
     [SerializeField]
-    Text unitButtonText;    // text element of UI button
+    Text unitButtonText;
+    // Added by Jason. UI elements for quantity, powerRatePerQuantity, priceToPurchase, and TotalPowerRate.
+    public Text powerRatePerQuantityText;
+    public Text quantityText;
+    public Text priceToPurchaseText;
+    public Text TotalPowerRateText;
+
+    // text element of UI button
 
     // Start is called before the first frame update
     void Start()
@@ -78,9 +85,10 @@ public class PassiveUnit : MonoBehaviour
     /// </summary>
     public void UpdateUI()
     {
-        unitButtonText.text = unitType + 
-            "\nCost: $" + priceToPurchase.ToString("F2") + 
-            "\nPower Generation: +" + powerRatePerQuantity + 
-            "\nQuantity: " + quantity;
+        //created by Jason. Got rid of old method, and added in new fields
+        quantityText.text = quantity.ToString("F0") + " Units";
+        powerRatePerQuantityText.text = powerRatePerQuantity.ToString("F2") + " kWh / s";
+        priceToPurchaseText.text = priceToPurchase.ToString("F2") + " $";
+        TotalPowerRateText.text = TotalPowerRate.ToString("F2") + " kWh / s";
     }
 }
