@@ -88,7 +88,7 @@ public class PassiveUnit : MonoBehaviour
         //created by Jason. Got rid of old method, and added in new fields
         quantityText.text = quantity.ToString("F0") + " Units";
         powerRatePerQuantityText.text = powerRatePerQuantity.ToString("F2") + " kWh / s";
-        priceToPurchaseText.text = priceToPurchase.ToString("F2") + " $";
+        priceToPurchaseText.text = "Cost: " + priceToPurchase.ToString("F2") + " $";
         TotalPowerRateText.text = TotalPowerRate.ToString("F2") + " kWh / s";
     }
 }
