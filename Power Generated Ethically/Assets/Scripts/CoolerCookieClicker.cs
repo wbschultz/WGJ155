@@ -6,13 +6,19 @@ using UnityEngine.UI;
 public class CoolerCookieClicker : SingletonBase<CoolerCookieClicker>
 {
     // Text is in reference to the UI element "Text"
-    public Text currencytext;
+    public Text TotalDollarsText;
     public double currency;
     public double currencyclickvalue;
     public double currencypersecond;
+    public double TotalPower;
+    public double powerpersecond;
 
-    public Text currencyPerSecondText;
+    public Text DollarsPerSecond;
+    public Text PowerPerSecondText;
     public Text clickUpgrade1Text;
+    public Text ConversationRateText;
+    public Text KilowattHourspersecond;
+    public Text TotalPowerText;
 
     public double passivePowerGenerationRate;   // rate of passive power gen (units)
     public double activePowerGenerationRate;    // rate of active power gen (treadmill)
@@ -38,6 +44,7 @@ public class CoolerCookieClicker : SingletonBase<CoolerCookieClicker>
 
         currencyclickvalue += 1;
         currency = 0;
+        TotalPower = 0;
         productionUpgradeCost = 25;
         clickUpgrade1Cost = 10;
     }
@@ -55,17 +62,32 @@ public class CoolerCookieClicker : SingletonBase<CoolerCookieClicker>
         //currencypersecond new variable
         currencypersecond = (passivePowerGenerationRate + activePowerGenerationRate) * currencyPerPower;
 
+        //added by Jason. A variable that will calculate the current KwH/s
+        powerpersecond = (passivePowerGenerationRate + activePowerGenerationRate);
+
+        // added by Jason. A UI field that displays the current CurrencyPerPower rate to the player.
+        ConversationRateText.text = "1 kWh = " + currencyPerPower.ToString("F2");
+
         // TODO seperate this code onto the menus themselves, or at least separate function
         // update UI
-        currencytext.text = "Currency:  " + currency.ToString("F2");
+        TotalDollarsText.text = currency.ToString("F2") + " $";
 
+        //added by Jason. UI Element for the Total Power.
+        TotalPowerText.text = TotalPower.ToString("F2") + " kWh";
         //currencyPerSecondText.text = currencyPerPower.ToString("F0") + "currency/s";
-        currencyPerSecondText.text = currencypersecond.ToString("F2") + "currency/s";
+        //changed by Jason. Turned currencypersecond to dollars per second. 
+        DollarsPerSecond.text = currencypersecond.ToString("F2") + "Dollars/s";
+
+        //added by Jason. text field that allows us to see current Kwh / s. 
+        PowerPerSecondText.text = powerpersecond.ToString("F2") + " kWh/s";
         clickUpgrade1Text.text = "Click Upgrade 1\nCost:" + clickUpgrade1Cost.ToString("F2") + "currency\nPower: +1 Click\nLevel: " + clickUpgradeLevel;
         //productionUpgrade1Text.text = "Production Upgrade 1\nCost: " + productionUpgradeCost.ToString("F2") + "currency\nPower: +1 Currency/s\nLevel: " + productionUpgradeLevel;
 
         // update currency (passive kWh + active kWh) * $/kWh * time
         currency += (passivePowerGenerationRate + activePowerGenerationRate) * currencyPerPower * Time.deltaTime;
+        //added by jason. Formula for creating the Total power variable. Essentially just got rid of currencyPerPower
+        TotalPower += (passivePowerGenerationRate + activePowerGenerationRate) * Time.deltaTime;
+
     }
 
     // =============================================temporary stuff=================================================================
