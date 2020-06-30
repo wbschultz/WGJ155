@@ -10,7 +10,7 @@ public class human_controller : MonoBehaviour
     private Controls controls;
     private Rigidbody2D rb;
 
-    public float speed_penalty;
+    public float speed_penalty = 1;
     private treadmill_controller treadmill;
 
     public float jump_force;
@@ -45,7 +45,7 @@ public class human_controller : MonoBehaviour
                 print("COLLIDED!");
                 Destroy(col.gameObject);
                 if (treadmill.speed - speed_penalty > 5)
-                    treadmill.speed -= speed_penalty;
+                    treadmill.speed = Mathf.Max(treadmill.minSpeed, treadmill.speed - speed_penalty);
             }
         }
     }

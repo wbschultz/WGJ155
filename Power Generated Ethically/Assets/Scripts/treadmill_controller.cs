@@ -7,6 +7,10 @@ public class treadmill_controller : MonoBehaviour
     public GameObject hurdle, belt;
     public Transform hurdle_spawn, belt_spawn;
 
+    public float minSpeed = 6f;
+    public float maxSpeed = 16f;
+    public float speedIncrease = 0.5f;
+
     public float speed; //speed controls the speed of the belt and obstacles
     private float time; //used for tracking time between obstacle spawns
     public float hurdle_interval; //how much time (minimum) do hurdles spawn
@@ -31,6 +35,9 @@ public class treadmill_controller : MonoBehaviour
             time = 0;
             randomizer = Random.Range(0, randomizer_max_param); //reset the randomizer
         }
+
+        // increase treadmill speed
+        speed = Mathf.Min(maxSpeed, speed + (speedIncrease * Time.deltaTime));
 
         // give treadmill speed to the central script
         CoolerCookieClicker.Instance.treadmillSpeed = speed;
