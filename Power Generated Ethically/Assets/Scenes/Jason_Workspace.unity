@@ -911,6 +911,7 @@ MonoBehaviour:
   priceToPurchase: 5
   priceGrowthRate: 1.07
   unitButtonText: {fileID: 1434259854}
+  powerRatePerQuantityText: {fileID: 1464288109}
   quantityText: {fileID: 210990905}
   priceToPurchaseText: {fileID: 862010479}
   TotalPowerRateText: {fileID: 312934636}
@@ -1339,6 +1340,7 @@ MonoBehaviour:
   priceToPurchase: 5
   priceGrowthRate: 1.07
   unitButtonText: {fileID: 1260250301}
+  powerRatePerQuantityText: {fileID: 1860169833}
   quantityText: {fileID: 1772925161}
   priceToPurchaseText: {fileID: 665520830}
   TotalPowerRateText: {fileID: 44255798}
@@ -7674,6 +7676,7 @@ MonoBehaviour:
   priceToPurchase: 25
   priceGrowthRate: 1.07
   unitButtonText: {fileID: 364413306}
+  powerRatePerQuantityText: {fileID: 2135730516}
   quantityText: {fileID: 615463810}
   priceToPurchaseText: {fileID: 1903421154}
   TotalPowerRateText: {fileID: 810620556}
@@ -7964,6 +7967,7 @@ MonoBehaviour:
   priceToPurchase: 5
   priceGrowthRate: 1.07
   unitButtonText: {fileID: 1076970267}
+  powerRatePerQuantityText: {fileID: 1589041789}
   quantityText: {fileID: 765761421}
   priceToPurchaseText: {fileID: 897438554}
   TotalPowerRateText: {fileID: 1201262902}
