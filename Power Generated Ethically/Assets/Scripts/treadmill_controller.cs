@@ -31,6 +31,9 @@ public class treadmill_controller : MonoBehaviour
             time = 0;
             randomizer = Random.Range(0, randomizer_max_param); //reset the randomizer
         }
+
+        // give treadmill speed to the central script
+        CoolerCookieClicker.Instance.treadmillSpeed = speed;
     }
 
     public void SpawnHurdle()

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PassiveUnit : MonoBehaviour
 {
-    public string unitType = "Hamster";
+    public string unitType = "Hamster"; // text identifier for the unit (used as key and as UI label)
 
     private int quantity = 0; // number of upgrades purchased
     [SerializeField]
@@ -85,9 +85,8 @@ public class PassiveUnit : MonoBehaviour
     /// </summary>
     public void UpdateUI()
     {
-        //created by Jason. Got rid of old method, and added in new fields
+        // edited by Jason. Got rid of old method, and added in new fields
         quantityText.text = quantity.ToString("F0") + " Units";
-        //powerRatePerQuantityText.text = powerRatePerQuantity.ToString("F2") + " kWh / s";
         priceToPurchaseText.text = "Cost: " + priceToPurchase.ToString("F2") + " $";
         TotalPowerRateText.text = TotalPowerRate.ToString("F2") + " kWh / s";
     }
