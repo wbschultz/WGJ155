@@ -199,7 +199,7 @@ SpriteRenderer:
   m_Size: {x: 1.28, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &44255796
@@ -1513,7 +1513,7 @@ SpriteRenderer:
   m_Size: {x: 3.25, y: 0.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &503650298
@@ -2767,7 +2767,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 731594521}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1584124647}
+        m_MethodName: SaveGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &731594521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5347,6 +5358,7 @@ MonoBehaviour:
   currencyPerPower: 0
   clickUpgrade1Cost: 0
   clickUpgradeLevel: 0
+  unitList: []
 --- !u!1 &1589041787
 GameObject:
   m_ObjectHideFlags: 0
