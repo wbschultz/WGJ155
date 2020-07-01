@@ -35,6 +35,8 @@ public class MusicManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         SetVolume(volume_slider.value); //set the volume to what the slider is initially set to
+
+        PlayMusic();
     }
     void Update()
     {
