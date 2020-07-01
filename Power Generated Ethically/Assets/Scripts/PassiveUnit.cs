@@ -6,20 +6,17 @@ using UnityEngine.UI;
 public class PassiveUnit : MonoBehaviour
 {
     public string unitType = "Hamster";
+    public int quantity = 0; // number of upgrades purchased
+    public double TotalPowerRate { get; private set; } // total rate of power generation for all units
 
-    private int quantity = 0; // number of upgrades purchased
     [SerializeField]
     private double powerRatePerQuantity = 0.01d; // rate of power generation per unit
     [SerializeField]
     private double priceToPurchase = 5d;         // price to buy next unit
     [SerializeField]
-    private double priceGrowthRate = 1.07d;      // price increase multiplier
-
-    public double TotalPowerRate { get; private set; } // total rate of power generation for all units
+    private double priceGrowthRate = 1.07d;      // unit buy price increase multiplier
 
     [Header("UI Elements")]
-    [SerializeField]
-    Text unitButtonText;
     // Added by Jason. UI elements for quantity, powerRatePerQuantity, priceToPurchase, and TotalPowerRate.
     public Text powerRatePerQuantityText;
     public Text quantityText;
@@ -66,7 +63,7 @@ public class PassiveUnit : MonoBehaviour
     /// multiply price by rate modifier
     /// </summary>
     /// <param name="modifier">decimal multiplier for price</param>
-    void PriceMultiply(float modifier)
+    public void PriceMultiply(float modifier)
     {
         priceToPurchase *= modifier;
     }
@@ -75,7 +72,7 @@ public class PassiveUnit : MonoBehaviour
     /// multiply power generation by rate modifier
     /// </summary>
     /// <param name="modifier">decimal modifier for power generation</param>
-    void PowerRateUp(float modifier)
+    public void PowerRateUp(float modifier)
     {
         powerRatePerQuantity *= modifier;
     }

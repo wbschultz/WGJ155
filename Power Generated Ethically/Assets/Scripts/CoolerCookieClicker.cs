@@ -33,9 +33,6 @@ public class CoolerCookieClicker : SingletonBase<CoolerCookieClicker>
     public double clickUpgrade1Cost;            // cost of first active upgrade
     public int clickUpgradeLevel;               // level of active upgrade?
 
-    public double productionUpgradeCost;
-    public int productionUpgradeLevel = 0;
-
     // store reference to each generator type that has been purchased
     public Dictionary<string, PassiveUnit> unitList = new Dictionary<string, PassiveUnit>();
 
@@ -48,7 +45,6 @@ public class CoolerCookieClicker : SingletonBase<CoolerCookieClicker>
         currencyclickvalue += 1;
         currency = 0;
         totalPowerRate = 0;
-        productionUpgradeCost = 25;
         clickUpgrade1Cost = 10;
 
         UpdateUI();
