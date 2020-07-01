@@ -1,4 +1,5 @@
 ﻿/*
+ * 
  * Controls Upgrades for passive units:
  * Takes the form of a repeatable upgrade to
  * either increase power generation rate or decrease price
@@ -11,6 +12,9 @@ using UnityEngine;
 public class PassiveUpgrade : MonoBehaviour
 {
     private int quantity = 0;
+
+    [SerializeField]
+    string upgradeType = "Hamster Wheel Oil";
 
     [SerializeField]
     List<PassiveUnit> unitsToUpgrade = new List<PassiveUnit>();
