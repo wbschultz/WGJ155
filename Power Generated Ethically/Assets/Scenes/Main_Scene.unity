@@ -206,7 +206,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1914048
@@ -431,7 +431,7 @@ SpriteRenderer:
   m_Size: {x: 1.28, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &44255796
@@ -1250,82 +1250,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &221837300
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 221837301}
-  - component: {fileID: 221837302}
-  - component: {fileID: 221837303}
-  m_Layer: 0
-  m_Name: Car Script Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &221837301
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 221837300}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1584124644}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &221837302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 221837300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab950c24f47d9654fb29e680a9a3675e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitType: Car
-  quantity: 0
-  powerRatePerQuantity: 0.01
-  priceToPurchase: 5
-  priceGrowthRate: 1.07
-  powerRatePerQuantityText: {fileID: 0}
-  quantityText: {fileID: 0}
-  priceToPurchaseText: {fileID: 0}
-  TotalPowerRateText: {fileID: 312934636}
-  spriteGroup: {fileID: 0}
---- !u!114 &221837303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 221837300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 478343ae33e189c4c96f667b987cdd49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradequantityText: {fileID: 441706252}
-  upgradepriceText: {fileID: 985807790}
-  upgrademodifierText: {fileID: 534233917}
-  upgradeType: Hamster Wheel Oil
-  unitsToUpgrade: []
-  maxQuantity: 20
-  priceToUpgrade: 10
-  upgradePriceGrowthRate: 1.5
-  powerRateModifier: 2
-  priceModifier: 1
 --- !u!1 &232846438
 GameObject:
   m_ObjectHideFlags: 0
@@ -1390,7 +1314,7 @@ SpriteRenderer:
   m_Size: {x: 3.0997639, y: 0.28125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &232846440
@@ -1570,7 +1494,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &252861390
@@ -1796,7 +1720,7 @@ GameObject:
   - component: {fileID: 303979460}
   - component: {fileID: 303979461}
   m_Layer: 0
-  m_Name: Elephant Script Manager
+  m_Name: Trash Fire Script Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1837,7 +1761,7 @@ MonoBehaviour:
   quantityText: {fileID: 1772925161}
   priceToPurchaseText: {fileID: 665520830}
   TotalPowerRateText: {fileID: 44255798}
-  spriteGroup: {fileID: 0}
+  spriteGroup: {fileID: 1165302493}
 --- !u!114 &303979461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2427,7 +2351,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 221837303}
+      - m_Target: {fileID: 0}
         m_MethodName: ApplyUpgrade
         m_Mode: 1
         m_Arguments:
@@ -3594,7 +3518,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &582902695
 Transform:
   m_ObjectHideFlags: 0
@@ -3612,7 +3536,7 @@ Transform:
   - {fileID: 252861390}
   - {fileID: 1060219892}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &611185086
 GameObject:
@@ -3939,7 +3863,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &648521808
@@ -4860,7 +4784,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &726843460
@@ -5982,7 +5906,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &976854269
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6652,7 +6576,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1060219892
@@ -7104,7 +7028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1165302494
 Transform:
   m_ObjectHideFlags: 0
@@ -7117,8 +7041,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 648521808}
+  - {fileID: 1312232896}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1171306029
 GameObject:
@@ -7918,7 +7843,7 @@ SpriteRenderer:
   m_Size: {x: 1.5, y: 0.28125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1312232896
@@ -7928,12 +7853,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1312232894}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.75, y: 2.91, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.640361, y: -1.1511691, z: 0.19301966}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 1165302494}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1312637316
 GameObject:
@@ -8377,7 +8302,7 @@ SpriteRenderer:
   m_Size: {x: 5.12, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1427882914
@@ -8938,7 +8863,7 @@ SpriteRenderer:
   m_Size: {x: 2.592124, y: 0.28125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1570473203
@@ -9027,7 +8952,6 @@ Transform:
   - {fileID: 1923529108}
   - {fileID: 1860657983}
   - {fileID: 303979459}
-  - {fileID: 221837301}
   m_Father: {fileID: 1093420012}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9222,7 +9146,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1592783529
@@ -10511,7 +10435,7 @@ GameObject:
   - component: {fileID: 1860657984}
   - component: {fileID: 1860657985}
   m_Layer: 0
-  m_Name: Goat Script Manager
+  m_Name: Indoor Solar Script Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10552,7 +10476,7 @@ MonoBehaviour:
   quantityText: {fileID: 615463810}
   priceToPurchaseText: {fileID: 1903421154}
   TotalPowerRateText: {fileID: 810620556}
-  spriteGroup: {fileID: 0}
+  spriteGroup: {fileID: 2093146477}
 --- !u!114 &1860657985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11358,7 +11282,7 @@ MonoBehaviour:
   quantityText: {fileID: 765761421}
   priceToPurchaseText: {fileID: 897438554}
   TotalPowerRateText: {fileID: 1201262902}
-  spriteGroup: {fileID: 0}
+  spriteGroup: {fileID: 582902694}
 --- !u!114 &1923529110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11933,7 +11857,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2093146478
 Transform:
   m_ObjectHideFlags: 0
@@ -11948,7 +11872,7 @@ Transform:
   - {fileID: 1570473203}
   - {fileID: 1592783529}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2135730514
 GameObject:
