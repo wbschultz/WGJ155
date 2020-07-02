@@ -153,7 +153,7 @@ RectTransform:
   m_Children:
   - {fileID: 1965388708}
   m_Father: {fileID: 1574145277}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -202,7 +202,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 19899224}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1860657985}
+        m_MethodName: ApplyUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &19899224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1148,6 +1159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 221837301}
   - component: {fileID: 221837302}
+  - component: {fileID: 221837303}
   m_Layer: 0
   m_Name: Car Script Manager
   m_TagString: Untagged
@@ -1190,6 +1202,28 @@ MonoBehaviour:
   quantityText: {fileID: 210990905}
   priceToPurchaseText: {fileID: 862010479}
   TotalPowerRateText: {fileID: 312934636}
+--- !u!114 &221837303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221837300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478343ae33e189c4c96f667b987cdd49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradequantityText: {fileID: 441706252}
+  upgradepriceText: {fileID: 985807790}
+  upgrademodifierText: {fileID: 534233917}
+  upgradeType: Hamster Wheel Oil
+  unitsToUpgrade: []
+  maxQuantity: 20
+  priceToUpgrade: 10
+  upgradePriceGrowthRate: 1.5
+  powerRateModifier: 2
+  priceModifier: 1
 --- !u!1 &237266758
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,16 +1249,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 237266758}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1879198818}
-  m_RootOrder: 8
+  m_Father: {fileID: 1574145277}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 482, y: 16}
+  m_AnchoredPosition: {x: 437, y: 16}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &237266760
@@ -1378,6 +1412,7 @@ RectTransform:
   - {fileID: 1312637317}
   - {fileID: 1392154749}
   - {fileID: 462564652}
+  - {fileID: 1764277741}
   m_Father: {fileID: 1879198818}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1474,6 +1509,7 @@ GameObject:
   m_Component:
   - component: {fileID: 303979459}
   - component: {fileID: 303979460}
+  - component: {fileID: 303979461}
   m_Layer: 0
   m_Name: Elephant Script Manager
   m_TagString: Untagged
@@ -1516,6 +1552,28 @@ MonoBehaviour:
   quantityText: {fileID: 1772925161}
   priceToPurchaseText: {fileID: 665520830}
   TotalPowerRateText: {fileID: 44255798}
+--- !u!114 &303979461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303979458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478343ae33e189c4c96f667b987cdd49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradequantityText: {fileID: 698688378}
+  upgradepriceText: {fileID: 1432905649}
+  upgrademodifierText: {fileID: 471123789}
+  upgradeType: Elephant Skates
+  unitsToUpgrade: []
+  maxQuantity: 20
+  priceToUpgrade: 10
+  upgradePriceGrowthRate: 1.5
+  powerRateModifier: 2
+  priceModifier: 1
 --- !u!1 &312934634
 GameObject:
   m_ObjectHideFlags: 0
@@ -1909,7 +1967,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 439899819}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 221837303}
+        m_MethodName: ApplyUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &439899819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2209,16 +2278,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 471123787}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1879198818}
-  m_RootOrder: 9
+  m_Father: {fileID: 1463149585}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 482, y: -93}
+  m_AnchoredPosition: {x: 437, y: -93}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &471123789
@@ -2344,6 +2413,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1872200245}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1879198817}
         m_MethodName: SetActive
         m_Mode: 6
@@ -2354,61 +2434,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1020701447}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 144246762}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1807356101}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1783976719}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 2011002485}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &483175826
 MonoBehaviour:
@@ -2714,16 +2739,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534233915}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1879198818}
-  m_RootOrder: 10
+  m_Father: {fileID: 699071885}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 482, y: -225}
+  m_AnchoredPosition: {x: 437, y: -225}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &534233917
@@ -3807,6 +3832,7 @@ RectTransform:
   - {fileID: 1434584691}
   - {fileID: 439899817}
   - {fileID: 441706251}
+  - {fileID: 534233916}
   m_Father: {fileID: 1879198818}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4327,7 +4353,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 781247259}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 303979461}
+        m_MethodName: ApplyUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &781247259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5370,8 +5407,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -46, y: -221}
-  m_SizeDelta: {x: 197.00003, y: 30}
+  m_AnchoredPosition: {x: -304.5503, y: -273.4}
+  m_SizeDelta: {x: 297.89944, y: 74.75482}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &985807790
 MonoBehaviour:
@@ -6705,8 +6742,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -98.49999, y: 123}
-  m_SizeDelta: {x: 197.00003, y: 30}
+  m_AnchoredPosition: {x: -313, y: 75.4}
+  m_SizeDelta: {x: 293.68127, y: 61.21086}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1312637318
 MonoBehaviour:
@@ -6908,7 +6945,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1392154751}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1923529110}
+        m_MethodName: ApplyUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1392154751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7199,8 +7247,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -49, y: -87}
-  m_SizeDelta: {x: 197.00003, y: 30}
+  m_AnchoredPosition: {x: -304.5503, y: -128.6}
+  m_SizeDelta: {x: 297.89944, y: 59.260178}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1432905649
 MonoBehaviour:
@@ -7431,6 +7479,7 @@ RectTransform:
   - {fileID: 1432905648}
   - {fileID: 781247257}
   - {fileID: 698688377}
+  - {fileID: 471123788}
   m_Father: {fileID: 1879198818}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7702,9 +7751,10 @@ RectTransform:
   m_Children:
   - {fileID: 533064227}
   - {fileID: 1670663916}
+  - {fileID: 1823721259}
   - {fileID: 1875883474}
   - {fileID: 19899222}
-  - {fileID: 1823721259}
+  - {fileID: 237266759}
   m_Father: {fileID: 1879198818}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7760,16 +7810,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d8bf5cf1a40e7b48b9ed6aa18a0bc5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalDollarsText: {fileID: 0}
+  totalDollarsText: {fileID: 621034634}
   currency: 0
   currencyclickvalue: 0
   currencyPerSecond: 0
   totalPowerRate: 0
   powerpersecond: 0
-  dollarsPerSecond: {fileID: 0}
-  powerPerSecondText: {fileID: 0}
+  dollarsPerSecond: {fileID: 649716131}
+  powerPerSecondText: {fileID: 1269627002}
   ConversationRateText: {fileID: 897469953}
-  totalPowerText: {fileID: 0}
+  totalPowerText: {fileID: 721692935}
   treadmillSpeed: 0
   treadmillPowerConstant: 0.0625
   currencyPerPower: 0
@@ -8673,16 +8723,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1764277740}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1879198818}
-  m_RootOrder: 7
+  m_Father: {fileID: 272277248}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 482, y: 121}
+  m_AnchoredPosition: {x: 437, y: 121}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1764277742
@@ -8922,7 +8972,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -318.09998, y: -207.3}
+  m_AnchoredPosition: {x: -318.09998, y: -207.29999}
   m_SizeDelta: {x: 287.80078, y: 253.49396}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1807356103
@@ -8992,7 +9042,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1574145277}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9206,6 +9256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1860657983}
   - component: {fileID: 1860657984}
+  - component: {fileID: 1860657985}
   m_Layer: 0
   m_Name: Goat Script Manager
   m_TagString: Untagged
@@ -9248,6 +9299,28 @@ MonoBehaviour:
   quantityText: {fileID: 615463810}
   priceToPurchaseText: {fileID: 1903421154}
   TotalPowerRateText: {fileID: 810620556}
+--- !u!114 &1860657985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860657982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478343ae33e189c4c96f667b987cdd49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradequantityText: {fileID: 1823721260}
+  upgradepriceText: {fileID: 1875883475}
+  upgrademodifierText: {fileID: 237266760}
+  upgradeType: Goat Feed
+  unitsToUpgrade: []
+  maxQuantity: 20
+  priceToUpgrade: 10
+  upgradePriceGrowthRate: 1.5
+  powerRateModifier: 2
+  priceModifier: 1
 --- !u!1 &1864335224
 GameObject:
   m_ObjectHideFlags: 0
@@ -9397,12 +9470,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1574145277}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -98.49999, y: 15}
-  m_SizeDelta: {x: 197.00003, y: 30}
+  m_AnchoredPosition: {x: -333.74, y: -20.5}
+  m_SizeDelta: {x: 245.51395, y: 59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1875883475
 MonoBehaviour:
@@ -9481,10 +9554,6 @@ RectTransform:
   - {fileID: 1463149585}
   - {fileID: 699071885}
   - {fileID: 916341374}
-  - {fileID: 1764277741}
-  - {fileID: 237266759}
-  - {fileID: 471123788}
-  - {fileID: 534233916}
   m_Father: {fileID: 1093420012}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9696,6 +9765,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1923529108}
   - component: {fileID: 1923529109}
+  - component: {fileID: 1923529110}
   m_Layer: 0
   m_Name: Hamster Script Manager
   m_TagString: Untagged
@@ -9738,6 +9808,28 @@ MonoBehaviour:
   quantityText: {fileID: 765761421}
   priceToPurchaseText: {fileID: 897438554}
   TotalPowerRateText: {fileID: 1201262902}
+--- !u!114 &1923529110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923529107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478343ae33e189c4c96f667b987cdd49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradequantityText: {fileID: 462564653}
+  upgradepriceText: {fileID: 1312637318}
+  upgrademodifierText: {fileID: 1764277742}
+  upgradeType: Hamster Wheel Oil
+  unitsToUpgrade: []
+  maxQuantity: 20
+  priceToUpgrade: 10
+  upgradePriceGrowthRate: 1.5
+  powerRateModifier: 2
+  priceModifier: 1
 --- !u!1 &1965388707
 GameObject:
   m_ObjectHideFlags: 0

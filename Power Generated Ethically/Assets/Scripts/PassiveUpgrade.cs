@@ -40,6 +40,12 @@ public class PassiveUpgrade : MonoBehaviour
     /// <summary>
     /// Apply rate and price modifier, subtact currency, and increase price
     /// </summary>
+    /// 
+
+    public void Start()
+    {
+        UpdateUI();
+    }
     public void ApplyUpgrade()
     {
         if (CoolerCookieClicker.Instance.currency >= priceToUpgrade && quantity < maxQuantity)
@@ -58,7 +64,7 @@ public class PassiveUpgrade : MonoBehaviour
             }
             // increase buy price
             priceToUpgrade *= upgradePriceGrowthRate;
-
+            UpdateUI();
         }
     }
 
@@ -72,6 +78,6 @@ public class PassiveUpgrade : MonoBehaviour
 
         upgradepriceText.text = priceToUpgrade.ToString("F2") + " $ to upgrade";
 
-        upgrademodifierText.text = powerRateModifier.ToString("F2") + " Multiplier to Power Rate";
+        upgrademodifierText.text = powerRateModifier.ToString("F2") + "x";
     }
 }
