@@ -18,7 +18,7 @@ public class treadmill_belt : MonoBehaviour
     {
         if (can_spawn)
         {
-            if (belt_spawn.position.x - transform.position.x >= 6.8853f)
+            if (belt_spawn.position.x - transform.position.x >= transform.lossyScale.x)
             {
                 treadmill.SpawnBelt();
                 can_spawn = false;

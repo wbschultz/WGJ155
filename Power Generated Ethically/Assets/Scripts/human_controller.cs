@@ -10,11 +10,13 @@ public class human_controller : MonoBehaviour
     private Controls controls;
     private Rigidbody2D rb;
 
-    public float speed_penalty = 1;
+    public float speed_penalty = 1.0f;
     private treadmill_controller treadmill;
 
     public float jump_force;
     private bool can_jump;
+
+    public Animator characterAnimator;
     void Awake()
     {
         treadmill = GameObject.FindGameObjectWithTag("ground").GetComponent<treadmill_controller>();
@@ -25,6 +27,10 @@ public class human_controller : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (rb.velocity.y <= 0)
+        {
+            characterAnimator.SetBool("Jumping", false);
+        }
         //Floor detection
         Collider2D[] collisions = Physics2D.OverlapCircleAll(ground_detection.position, detection_radius);
         can_jump = false;
@@ -44,8 +50,14 @@ public class human_controller : MonoBehaviour
             {
                 print("COLLIDED!");
                 Destroy(col.gameObject);
-                if (treadmill.speed - speed_penalty > 5)
-                    treadmill.speed = Mathf.Max(treadmill.minSpeed, treadmill.speed - speed_penalty);
+                if(treadmill.speed - speed_penalty <= treadmill.minSpeed)
+                {
+                    treadmill.Set_Speed(treadmill.minSpeed);
+                }
+                else
+                {
+                    treadmill.Set_Speed(treadmill.speed - speed_penalty);
+                }
             }
         }
     }
@@ -54,6 +66,7 @@ public class human_controller : MonoBehaviour
         if (can_jump)
         {
             rb.AddForce(Vector2.up * 100 * jump_force);
+            characterAnimator.SetBool("Jumping", true);
         }
     }
 
