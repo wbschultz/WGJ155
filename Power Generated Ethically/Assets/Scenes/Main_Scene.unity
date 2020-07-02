@@ -206,7 +206,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1914048
@@ -1188,7 +1188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &201182659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1303,6 +1303,7 @@ MonoBehaviour:
   quantityText: {fileID: 0}
   priceToPurchaseText: {fileID: 0}
   TotalPowerRateText: {fileID: 312934636}
+  spriteGroup: {fileID: 0}
 --- !u!114 &221837303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1389,7 +1390,7 @@ SpriteRenderer:
   m_Size: {x: 3.0997639, y: 0.28125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &232846440
@@ -1569,7 +1570,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &252861390
@@ -1836,6 +1837,7 @@ MonoBehaviour:
   quantityText: {fileID: 1772925161}
   priceToPurchaseText: {fileID: 665520830}
   TotalPowerRateText: {fileID: 44255798}
+  spriteGroup: {fileID: 0}
 --- !u!114 &303979461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1887,7 +1889,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 48170821}
-  - {fileID: 1160301491}
   - {fileID: 1270922924}
   m_Father: {fileID: 201182661}
   m_RootOrder: 2
@@ -3611,7 +3612,7 @@ Transform:
   - {fileID: 252861390}
   - {fileID: 1060219892}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &611185086
 GameObject:
@@ -3696,7 +3697,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &615463808
 GameObject:
@@ -3938,7 +3939,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &648521808
@@ -4376,7 +4377,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1160301491}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4859,7 +4860,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &726843460
@@ -5845,7 +5846,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5981,7 +5982,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &976854269
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6329,7 +6330,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1018535242
 GameObject:
@@ -6651,7 +6652,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1060219892
@@ -7001,7 +7002,7 @@ RectTransform:
   - {fileID: 1584124644}
   - {fileID: 1879198818}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7117,7 +7118,7 @@ Transform:
   m_Children:
   - {fileID: 648521808}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1171306029
 GameObject:
@@ -7714,7 +7715,7 @@ RectTransform:
   m_Children:
   - {fileID: 913069408}
   m_Father: {fileID: 312808937}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -7917,7 +7918,7 @@ SpriteRenderer:
   m_Size: {x: 1.5, y: 0.28125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1312232896
@@ -7932,7 +7933,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1312637316
 GameObject:
@@ -8937,7 +8938,7 @@ SpriteRenderer:
   m_Size: {x: 2.592124, y: 0.28125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1570473203
@@ -9047,7 +9048,7 @@ MonoBehaviour:
   currencyclickvalue: 0
   currencyPerSecond: 0
   totalPowerRate: 0
-  powerpersecond: 0
+  powerPerSecond: 0
   dollarsPerSecond: {fileID: 649716131}
   powerPerSecondText: {fileID: 1269627002}
   ConversationRateText: {fileID: 897469953}
@@ -9057,6 +9058,7 @@ MonoBehaviour:
   currencyPerPower: 0
   clickUpgrade1Cost: 0
   clickUpgradeLevel: 0
+  unitList: []
 --- !u!1 &1589041787
 GameObject:
   m_ObjectHideFlags: 0
@@ -9220,7 +9222,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1592783529
@@ -10324,7 +10326,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1832524393
 Transform:
   m_ObjectHideFlags: 0
@@ -10339,7 +10341,7 @@ Transform:
   - {fileID: 1210538893}
   - {fileID: 1619011575}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1844802058
 GameObject:
@@ -10550,6 +10552,7 @@ MonoBehaviour:
   quantityText: {fileID: 615463810}
   priceToPurchaseText: {fileID: 1903421154}
   TotalPowerRateText: {fileID: 810620556}
+  spriteGroup: {fileID: 0}
 --- !u!114 &1860657985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10665,7 +10668,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1872200246
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11355,6 +11358,7 @@ MonoBehaviour:
   quantityText: {fileID: 765761421}
   priceToPurchaseText: {fileID: 897438554}
   TotalPowerRateText: {fileID: 1201262902}
+  spriteGroup: {fileID: 0}
 --- !u!114 &1923529110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11654,7 +11658,7 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.662, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11944,7 +11948,7 @@ Transform:
   - {fileID: 1570473203}
   - {fileID: 1592783529}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2135730514
 GameObject:
