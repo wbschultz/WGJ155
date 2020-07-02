@@ -371,6 +371,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5222418972077639692, guid: d0005ef35f45ca74b94379d4a6269a4f,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0226ddfef3368ec4e960cd2adc299063, type: 3}
     - target: {fileID: 5222418973128545888, guid: d0005ef35f45ca74b94379d4a6269a4f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2781,7 +2786,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.0001
+  m_Value: 0.058
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:

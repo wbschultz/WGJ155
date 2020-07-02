@@ -34,10 +34,15 @@ public class MusicManager : MonoBehaviour
         //Set to don't destroy on load so that it remains when reloading the scene
         DontDestroyOnLoad(gameObject);
 
+    }
+
+    private void Start()
+    {
         SetVolume(volume_slider.value); //set the volume to what the slider is initially set to
 
         PlayMusic();
     }
+
     void Update()
     {
 
