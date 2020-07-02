@@ -19,7 +19,7 @@ public class CoolerCookieClicker : SingletonBase<CoolerCookieClicker>
     public double currencyclickvalue;
     public double currencyPerSecond;
     public double totalPowerRate;
-    public double powerpersecond;
+    public double powerPerSecond;
 
     public Text dollarsPerSecond;
     public Text powerPerSecondText;
@@ -70,7 +70,7 @@ public class CoolerCookieClicker : SingletonBase<CoolerCookieClicker>
         currencyPerSecond = (passivePowerGenerationRate + activePowerGenerationRate) * currencyPerPower;
 
         //added by Jason. A variable that will calculate the current KwH/s
-        powerpersecond = (passivePowerGenerationRate + activePowerGenerationRate);
+        powerPerSecond = (passivePowerGenerationRate + activePowerGenerationRate);
 
         // update UI elements
         UpdateUI();
@@ -101,7 +101,7 @@ public class CoolerCookieClicker : SingletonBase<CoolerCookieClicker>
         dollarsPerSecond.text = currencyPerSecond.ToString("F2") + "Dollars/s";
 
         //added by Jason. text field that allows us to see current Kwh / s. 
-        powerPerSecondText.text = powerpersecond.ToString("F2") + " kWh/s";
+        powerPerSecondText.text = powerPerSecond.ToString("F2") + " kWh/s";
     }
 
     /**
@@ -110,10 +110,12 @@ public class CoolerCookieClicker : SingletonBase<CoolerCookieClicker>
     public void SaveGame()
     {
         UnityEngine.Debug.Log("CoolerCookieClicker::SaveGame() ");
-        for (int i = 0; i < this.unitList.Count; i++)
-        {
-            this.unitList[i].SavePassiveUnit();
-        }
+
+        SaveSystem.SaveAllData(this, unitList);
+        //for (int i = 0; i < this.unitList.Count; i++)
+        //{
+        //    this.unitList[i].SavePassiveUnit();
+        //}
     }
 
     /**
@@ -121,9 +123,23 @@ public class CoolerCookieClicker : SingletonBase<CoolerCookieClicker>
      */
     public void LoadGame()
     {
+        SaveData gameData = SaveSystem.LoadAllData();
+
+        this.currency = gameData.currency;
+        this.currencyPerPower = gameData.currencyPerPower;
+        this.currencyPerSecond = gameData.currencyPerSecond;
+        this.powerPerSecond = gameData.powerPerSecond;
+        this.totalPowerRate = gameData.totalPowerRate;
+
         for (int i = 0; i < this.unitList.Count; i++)
         {
-            this.unitList[i].LoadPassiveUnit();
+            this.unitList[i].RestoreDataFromSave(gameData.passiveUnitDataList);
         }
+
+        UpdateUI();
+        //for (int i = 0; i < this.unitList.Count; i++)
+        //{
+        //    this.unitList[i].LoadPassiveUnit();
+        //}
     }
 }

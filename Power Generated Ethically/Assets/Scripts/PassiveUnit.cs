@@ -3,6 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public struct PassiveUnitProps
+{
+    public string unitType;
+    public int quantity;
+    public double powerRatePerQuantity;
+    public double priceToPurchase;
+    public double priceGrowthRate;
+
+    public PassiveUnitProps(string unitType, int quantity, double powerRatePerQuantity, double priceToPurchase, double priceGrowthRate)
+    {
+        this.unitType = unitType;
+        this.quantity = quantity;
+        this.powerRatePerQuantity = powerRatePerQuantity;
+        this.priceToPurchase = priceToPurchase;
+        this.priceGrowthRate = priceGrowthRate;
+    }
+}
+
 public class PassiveUnit : MonoBehaviour
 {
     public string unitType = "Hamster";
@@ -98,12 +116,37 @@ public class PassiveUnit : MonoBehaviour
     /***************************************************************************
      * Save/Load player upgrade progress
      ***************************************************************************/
+    public PassiveUnitProps getDataToSave()
+    {
+        PassiveUnitProps passiveUnitProps = new PassiveUnitProps(this.unitType, this.quantity, this.powerRatePerQuantity, this.priceToPurchase, this.priceGrowthRate);
+        return passiveUnitProps;
+    }
+
+    public void RestoreDataFromSave(List<PassiveUnitData> passiveUnitDataList)
+    {
+        for (int i = 0; i < passiveUnitDataList.Count; i++)
+        {
+            if (passiveUnitDataList[i].unitType == this.unitType)
+            {
+                PassiveUnitData passiveUnitData= passiveUnitDataList[i];
+                this.quantity = passiveUnitData.quantity;
+                this.powerRatePerQuantity = passiveUnitData.powerRatePerQuantity;
+                this.priceToPurchase = passiveUnitData.priceToPurchase;
+                this.priceGrowthRate = passiveUnitData.priceGrowthRate;
+                break;
+            }
+        }
+
+        UpdateUI();
+    }
+
     /**
      * <summary>Serializes passive unit data and saves it to storage</summary>
      */
     public void SavePassiveUnit ()
     {
-        SaveSystem.SavePassiveUnit(this.unitType, this.quantity, this.powerRatePerQuantity, this.priceToPurchase, this.priceGrowthRate);
+        PassiveUnitProps passiveUnitProps = new PassiveUnitProps(this.unitType, this.quantity, this.powerRatePerQuantity, this.priceToPurchase, this.priceGrowthRate);
+        SaveSystem.SavePassiveUnit(passiveUnitProps);
     }
 
     /**

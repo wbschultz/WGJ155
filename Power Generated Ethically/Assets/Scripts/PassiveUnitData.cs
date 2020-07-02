@@ -11,12 +11,12 @@ public class PassiveUnitData
     public double priceToPurchase;
     public double priceGrowthRate;
 
-    public PassiveUnitData(string unitType, int quantity, double powerRatePerQuantity, double priceToPurchase, double priceGrowthRate)
+    public PassiveUnitData(PassiveUnitProps passiveUnitProps)
     {
-        this.unitType = unitType;
-        this.quantity = quantity;
-        this.powerRatePerQuantity = powerRatePerQuantity;
-        this.priceToPurchase = priceToPurchase;
-        this.priceGrowthRate = priceGrowthRate;
+        this.unitType = passiveUnitProps.unitType;
+        this.quantity = passiveUnitProps.quantity;
+        this.powerRatePerQuantity = passiveUnitProps.powerRatePerQuantity;
+        this.priceToPurchase = passiveUnitProps.priceToPurchase;
+        this.priceGrowthRate = passiveUnitProps.priceGrowthRate;
     }
 }
