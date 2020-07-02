@@ -8,9 +8,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PassiveUpgrade : MonoBehaviour
 {
+    //UI fields for the upgrades
+
+    public Text upgradequantityText;
+    public Text upgradepriceText;
+    public Text upgrademodifierText;
     private int quantity = 0;
 
     [SerializeField]
@@ -34,6 +40,12 @@ public class PassiveUpgrade : MonoBehaviour
     /// <summary>
     /// Apply rate and price modifier, subtact currency, and increase price
     /// </summary>
+    /// 
+
+    public void Start()
+    {
+        UpdateUI();
+    }
     public void ApplyUpgrade()
     {
         if (CoolerCookieClicker.Instance.currency >= priceToUpgrade && quantity < maxQuantity)
@@ -52,6 +64,20 @@ public class PassiveUpgrade : MonoBehaviour
             }
             // increase buy price
             priceToUpgrade *= upgradePriceGrowthRate;
+            UpdateUI();
         }
+    }
+
+    private void UpdateUI()
+    {
+        upgradequantityText.text = quantity.ToString("F0") + " Upgrade level";
+        if(quantity == 20)
+        {
+            upgradequantityText.text = "Maximum Upgrade level";
+        }
+
+        upgradepriceText.text = priceToUpgrade.ToString("F2") + " $ to upgrade";
+
+        upgrademodifierText.text = powerRateModifier.ToString("F2") + "x";
     }
 }

@@ -135,6 +135,9 @@ MonoBehaviour:
   belt: {fileID: 5831893915299003689, guid: 4b7b6b3c9ee6e8941bf720ef3b47be2a, type: 3}
   hurdle_spawn: {fileID: 7916486702636698097}
   belt_spawn: {fileID: 318495104}
+  minSpeed: 6
+  maxSpeed: 16
+  speedIncrease: 0.5
   speed: 5
   hurdle_interval: 1
   randomizer_max_param: 3
@@ -425,7 +428,7 @@ PrefabInstance:
     - target: {fileID: 4156735849488411618, guid: 4b7b6b3c9ee6e8941bf720ef3b47be2a,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.7213249
+      value: 1.7213247
       objectReference: {fileID: 0}
     - target: {fileID: 4156735849488411618, guid: 4b7b6b3c9ee6e8941bf720ef3b47be2a,
         type: 3}
