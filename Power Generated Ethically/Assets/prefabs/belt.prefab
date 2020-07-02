@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5831893915299003689}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.2321, y: 0, z: 0}
-  m_LocalScale: {x: 6.0401297, y: 0.41724733, z: 1}
+  m_LocalScale: {x: 2.416071, y: 0.16345036, z: 0.28319}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -73,7 +73,7 @@ SpriteShapeRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Color: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}
+  m_Color: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 0}
   m_Sprites: []
@@ -158,7 +158,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   belt_spawn: {fileID: 7177404608434875990, guid: 0a4feeddce706f948b7ecd50a24bfb84,
-    type: 3}
-  treadmill: {fileID: 7916486701069249486, guid: 273aa4b29767974439135629d87b12ed,
     type: 3}
   can_spawn: 1
