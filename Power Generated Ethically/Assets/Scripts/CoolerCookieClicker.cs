@@ -3,6 +3,7 @@
  * For P & GE, a game for Weekly Game Jam week 155
  */
 
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,6 +21,8 @@ public class CoolerCookieClicker : SingletonBase<CoolerCookieClicker>
     public double currencyPerSecond;
     public double totalPowerRate;
     public double powerPerSecond;
+    public double purchasepool;
+
 
     public Text dollarsPerSecond;
     public Text powerPerSecondText;
@@ -27,7 +30,7 @@ public class CoolerCookieClicker : SingletonBase<CoolerCookieClicker>
     public Text totalPowerText;
 
     public double treadmillSpeed;               // holds speed of the treadmill
-    public double treadmillPowerConstant = 0.0625d;       // multiplier to treadmill speed value
+    public double treadmillPowerConstant = 0.2625d;       // multiplier to treadmill speed value
 
     private double passivePowerGenerationRate;   // rate of passive power gen (units)
     private double activePowerGenerationRate;    // rate of active power gen (treadmill speed * activePowerConstant)
@@ -44,24 +47,29 @@ public class CoolerCookieClicker : SingletonBase<CoolerCookieClicker>
     {
         // set initial  price
         currencyPerPower = 0.12;
-
+        purchasepool = 0;
         currencyclickvalue += 1;
         currency = 0;
         totalPowerRate = 0;
         clickUpgrade1Cost = 10;
-
+        passivePowerGenerationRate = 0;
+        
         UpdateUI();
     }
 
+    public void AddToPassive(double value)
+    {
+        passivePowerGenerationRate += value;
+    }
     // called every frame
     public void Update()
     {
         // sum all generation rates
-        passivePowerGenerationRate = 0;
-        foreach (PassiveUnit passiveUnit in unitList)
-        {
-            passivePowerGenerationRate += passiveUnit.TotalPowerRate;
-        }
+        
+        //foreach (PassiveUnit passiveUnit in unitList)
+        //{
+           // passivePowerGenerationRate += passiveUnit.TotalPowerRate;
+       // }
 
         // calculate active power generation
         activePowerGenerationRate = treadmillSpeed * treadmillPowerConstant;
@@ -79,7 +87,8 @@ public class CoolerCookieClicker : SingletonBase<CoolerCookieClicker>
         totalPowerRate += (passivePowerGenerationRate + activePowerGenerationRate) * Time.deltaTime;
 
         // update currency: total power * $/kWh
-        currency += totalPowerRate * currencyPerPower;
+        currency = (totalPowerRate * currencyPerPower) - purchasepool;
+
 
     }
 

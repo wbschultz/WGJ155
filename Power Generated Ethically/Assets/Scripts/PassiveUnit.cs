@@ -68,7 +68,8 @@ public class PassiveUnit : MonoBehaviour
         if (resourceManager.currency >= priceToPurchase)
         {
             // buy unit
-            resourceManager.currency -= priceToPurchase;
+            resourceManager.purchasepool += priceToPurchase;
+            resourceManager.AddToPassive(powerRatePerQuantity);
             quantity++;
             // increase price
             priceToPurchase *= priceGrowthRate;
