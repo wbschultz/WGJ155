@@ -23,6 +23,10 @@ public class PassiveUnit : MonoBehaviour
     public Text priceToPurchaseText;
     public Text TotalPowerRateText;
 
+    [Header("Sprites")]
+    [SerializeField]
+    private GameObject spriteGroup;
+
     // text element of UI button
 
     // Start is called before the first frame update
@@ -87,5 +91,13 @@ public class PassiveUnit : MonoBehaviour
         powerRatePerQuantityText.text = powerRatePerQuantity.ToString("F2") + " kWh / s";
         priceToPurchaseText.text = "Cost: " + priceToPurchase.ToString("F2") + " $";
         TotalPowerRateText.text = TotalPowerRate.ToString("F2") + " kWh / s";
+
+        if(quantity > 0)
+        {
+            spriteGroup.SetActive(true);
+        } else
+        {
+            spriteGroup.SetActive(false);
+        }
     }
 }
