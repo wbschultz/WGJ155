@@ -140,6 +140,7 @@ public class CoolerCookieClicker : SingletonBase<CoolerCookieClicker>
         this.powerPerSecond = gameData.powerPerSecond;
         this.totalPowerRate = gameData.totalPowerRate;
         this.treadmillSpeed = gameData.treadmillSpeed;
+        this.purchasepool = gameData.purchasepool;
         this.gameLoaded = true;
 
         // Rerender UI to match state
@@ -150,43 +151,5 @@ public class CoolerCookieClicker : SingletonBase<CoolerCookieClicker>
     public void QuitGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-    }
-    /**
-     * <summary>Save all game data to storage</summary>
-     */
-    public void SaveGame()
-    {
-        UnityEngine.Debug.Log("CoolerCookieClicker::SaveGame() ");
-
-        //SaveSystem.SaveAllData(this, unitList);
-        //for (int i = 0; i < this.unitList.Count; i++)
-        //{
-        //    this.unitList[i].SavePassiveUnit();
-        //}
-    }
-
-    /**
-     * <summary>Load all game data from storage</summary>
-     */
-    public void LoadGame()
-    {
-        //SaveData gameData = SaveSystem.LoadAllData();
-
-        //this.currency = gameData.currency;
-        //this.currencyPerPower = gameData.currencyPerPower;
-        //this.currencyPerSecond = gameData.currencyPerSecond;
-        //this.powerPerSecond = gameData.powerPerSecond;
-        //this.totalPowerRate = gameData.totalPowerRate;
-
-        //for (int i = 0; i < this.unitList.Count; i++)
-        //{
-        //    this.unitList[i].RestoreDataFromSave(gameData.passiveUnitDataList);
-        //}
-
-        //UpdateUI();
-        //for (int i = 0; i < this.unitList.Count; i++)
-        //{
-        //    this.unitList[i].LoadPassiveUnit();
-        //}
     }
 }

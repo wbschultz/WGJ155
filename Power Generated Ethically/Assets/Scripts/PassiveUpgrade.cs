@@ -50,7 +50,7 @@ public class PassiveUpgrade : MonoBehaviour
     {
         if (CoolerCookieClicker.Instance.currency >= priceToUpgrade && quantity < maxQuantity)
         {
-            CoolerCookieClicker.Instance.currency -= priceToUpgrade;
+            CoolerCookieClicker.Instance.purchasepool += priceToUpgrade;
             quantity++;
             foreach (PassiveUnit unit in unitsToUpgrade)
             {

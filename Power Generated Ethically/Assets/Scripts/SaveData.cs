@@ -13,6 +13,7 @@ public class SaveData
     public double currencyPerSecond;
     public double powerPerSecond;
     public double totalPowerRate;
+    public double purchasepool;
     public float treadmillSpeed;
     public List<PassiveUnitData> passiveUnitDataList = new List<PassiveUnitData>();
     public List<PassiveUpgradeData> passiveUpgradeDataList = new List<PassiveUpgradeData>();
@@ -37,6 +38,7 @@ public class SaveData
         this.currencyPerSecond = resources.currencyPerSecond;
         this.powerPerSecond = resources.powerPerSecond;
         this.totalPowerRate = resources.totalPowerRate;
+        this.purchasepool = resources.purchasepool;
         this.treadmillSpeed = resources.treadmillSpeed;
     }
 }

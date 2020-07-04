@@ -1700,7 +1700,8 @@ MonoBehaviour:
   upgradepriceText: {fileID: 1432905649}
   upgrademodifierText: {fileID: 471123789}
   upgradeType: Elephant Skates
-  unitsToUpgrade: []
+  unitsToUpgrade:
+  - {fileID: 303979460}
   maxQuantity: 20
   priceToUpgrade: 1000
   upgradePriceGrowthRate: 1.5
@@ -8303,7 +8304,6 @@ MonoBehaviour:
   currencyPerPower: 0
   clickUpgrade1Cost: 0
   clickUpgradeLevel: 0
-  unitList: []
 --- !u!1 &1589041787
 GameObject:
   m_ObjectHideFlags: 0
@@ -8565,7 +8565,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1614456171}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1584124647}
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1614456171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9734,7 +9745,8 @@ MonoBehaviour:
   upgradepriceText: {fileID: 1875883475}
   upgrademodifierText: {fileID: 237266760}
   upgradeType: Goat Feed
-  unitsToUpgrade: []
+  unitsToUpgrade:
+  - {fileID: 1860657984}
   maxQuantity: 20
   priceToUpgrade: 400
   upgradePriceGrowthRate: 1.5
@@ -10539,7 +10551,8 @@ MonoBehaviour:
   upgradepriceText: {fileID: 1312637318}
   upgrademodifierText: {fileID: 1764277742}
   upgradeType: Hamster Wheel Oil
-  unitsToUpgrade: []
+  unitsToUpgrade:
+  - {fileID: 1923529109}
   maxQuantity: 20
   priceToUpgrade: 100
   upgradePriceGrowthRate: 1.5

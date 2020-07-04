@@ -33,7 +33,6 @@ public class treadmill_controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UnityEngine.Debug.Log("treadmill_controller::Update() speed: " + speed.ToString());   
         time += Time.deltaTime;
         if (time >= hurdle_interval + randomizer) //if time is >= to the spawn-time, then spawn obstacle
         {

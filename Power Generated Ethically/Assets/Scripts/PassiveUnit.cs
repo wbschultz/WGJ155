@@ -101,6 +101,8 @@ public class PassiveUnit : MonoBehaviour
     public void PowerRateUp(float modifier)
     {
         powerRatePerQuantity *= modifier;
+        TotalPowerRate = powerRatePerQuantity * quantity;
+        UpdateUI();
     }
 
     /***************************************************************************
