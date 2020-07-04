@@ -127,7 +127,7 @@ public class PassiveUnit : MonoBehaviour
     }
 
     /***************************************************************************
-     * Save/Load player upgrade progress
+     * Save/Load player passive unit progress
      ***************************************************************************/
     public PassiveUnitProps getDataToSave()
     {
@@ -135,8 +135,9 @@ public class PassiveUnit : MonoBehaviour
         return passiveUnitProps;
     }
 
-    public void RestoreDataFromSave(List<PassiveUnitData> passiveUnitDataList)
+    public void RestoreDataFromSave(SaveData saveData)
     {
+        List<PassiveUnitData> passiveUnitDataList = saveData.passiveUnitDataList;
         for (int i = 0; i < passiveUnitDataList.Count; i++)
         {
             if (passiveUnitDataList[i].unitType == this.unitType)
@@ -149,30 +150,6 @@ public class PassiveUnit : MonoBehaviour
                 break;
             }
         }
-
-        UpdateUI();
-    }
-
-    /**
-     * <summary>Serializes passive unit data and saves it to storage</summary>
-     */
-    public void SavePassiveUnit ()
-    {
-        PassiveUnitProps passiveUnitProps = new PassiveUnitProps(this.unitType, this.quantity, this.powerRatePerQuantity, this.priceToPurchase, this.priceGrowthRate);
-        SaveSystem.SavePassiveUnit(passiveUnitProps);
-    }
-
-    /**
-     * <summary>Deserializes and loads passive unit data from storage</summary>
-     */
-    public void LoadPassiveUnit ()
-    {
-        PassiveUnitData loadedData = SaveSystem.LoadPassiveUnit(this.unitType);
-        UnityEngine.Debug.Log("PassiveUnit::LoadPassiveUnit() unitType: " + loadedData.unitType + ",quantity: " + loadedData.quantity);
-        this.quantity = loadedData.quantity;
-        this.powerRatePerQuantity = loadedData.powerRatePerQuantity;
-        this.priceToPurchase = loadedData.priceToPurchase;
-        this.priceGrowthRate = loadedData.priceGrowthRate;
 
         UpdateUI();
     }

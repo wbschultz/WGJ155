@@ -11,6 +11,7 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CoolerCookieClicker : SingletonBase<CoolerCookieClicker>
 {
@@ -28,8 +29,11 @@ public class CoolerCookieClicker : SingletonBase<CoolerCookieClicker>
     public Text powerPerSecondText;
     public Text ConversationRateText;
     public Text totalPowerText;
+    public treadmill_controller treadmill;
 
-    public double treadmillSpeed;               // holds speed of the treadmill
+    private bool gameLoaded = false;
+
+    public float treadmillSpeed;               // holds speed of the treadmill
     public double treadmillPowerConstant = 0.2625d;       // multiplier to treadmill speed value
 
     private double passivePowerGenerationRate;   // rate of passive power gen (units)
@@ -40,20 +44,34 @@ public class CoolerCookieClicker : SingletonBase<CoolerCookieClicker>
     public int clickUpgradeLevel;               // level of active upgrade?
 
     // store reference to each generator type that has been purchased
-    public List<PassiveUnit> unitList = new List<PassiveUnit>();
+    private List<PassiveUnit> unitList = new List<PassiveUnit>();
 
     // called before first frame update
     public void Start()
     {
         // set initial  price
-        currencyPerPower = 0.12;
-        purchasepool = 0;
-        currencyclickvalue += 1;
-        currency = 0;
-        totalPowerRate = 0;
-        clickUpgrade1Cost = 10;
-        passivePowerGenerationRate = 0;
-        
+        if (gameLoaded == false)
+        {
+            currencyPerPower = 0.12;
+            purchasepool = 0;
+            currencyclickvalue += 1;
+            currency = 0;
+            totalPowerRate = 0;
+            clickUpgrade1Cost = 10;
+            passivePowerGenerationRate = 0;
+        }
+
+        GameObject[] dataManagers = GameObject.FindGameObjectsWithTag("DataManager");
+        foreach(GameObject dataManager in dataManagers)
+        {
+            PassiveUnit passiveUnit = dataManager.GetComponent<PassiveUnit>();
+            if (passiveUnit != null)
+            {
+                unitList.Add(passiveUnit);
+            }
+        }
+
+
         UpdateUI();
     }
 
@@ -65,11 +83,11 @@ public class CoolerCookieClicker : SingletonBase<CoolerCookieClicker>
     public void Update()
     {
         // sum all generation rates
-        
-        //foreach (PassiveUnit passiveUnit in unitList)
-        //{
-           // passivePowerGenerationRate += passiveUnit.TotalPowerRate;
-       // }
+        passivePowerGenerationRate = 0;
+       foreach (PassiveUnit passiveUnit in unitList)
+       {
+            passivePowerGenerationRate += passiveUnit.TotalPowerRate;
+       }
 
         // calculate active power generation
         activePowerGenerationRate = treadmillSpeed * treadmillPowerConstant;
@@ -113,6 +131,26 @@ public class CoolerCookieClicker : SingletonBase<CoolerCookieClicker>
         powerPerSecondText.text = powerPerSecond.ToString("F2") + " kWh/s";
     }
 
+    public void RestoreDataFromSave(SaveData gameData)
+    {
+        // Restore data from save data
+        this.currency = gameData.currency;
+        this.currencyPerPower = gameData.currencyPerPower;
+        this.currencyPerSecond = gameData.currencyPerSecond;
+        this.powerPerSecond = gameData.powerPerSecond;
+        this.totalPowerRate = gameData.totalPowerRate;
+        this.treadmillSpeed = gameData.treadmillSpeed;
+        this.gameLoaded = true;
+
+        // Rerender UI to match state
+        this.treadmill.Set_Speed(this.treadmillSpeed);
+        this.UpdateUI();
+    }
+
+    public void QuitGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
     /**
      * <summary>Save all game data to storage</summary>
      */
@@ -120,7 +158,7 @@ public class CoolerCookieClicker : SingletonBase<CoolerCookieClicker>
     {
         UnityEngine.Debug.Log("CoolerCookieClicker::SaveGame() ");
 
-        SaveSystem.SaveAllData(this, unitList);
+        //SaveSystem.SaveAllData(this, unitList);
         //for (int i = 0; i < this.unitList.Count; i++)
         //{
         //    this.unitList[i].SavePassiveUnit();
@@ -132,20 +170,20 @@ public class CoolerCookieClicker : SingletonBase<CoolerCookieClicker>
      */
     public void LoadGame()
     {
-        SaveData gameData = SaveSystem.LoadAllData();
+        //SaveData gameData = SaveSystem.LoadAllData();
 
-        this.currency = gameData.currency;
-        this.currencyPerPower = gameData.currencyPerPower;
-        this.currencyPerSecond = gameData.currencyPerSecond;
-        this.powerPerSecond = gameData.powerPerSecond;
-        this.totalPowerRate = gameData.totalPowerRate;
+        //this.currency = gameData.currency;
+        //this.currencyPerPower = gameData.currencyPerPower;
+        //this.currencyPerSecond = gameData.currencyPerSecond;
+        //this.powerPerSecond = gameData.powerPerSecond;
+        //this.totalPowerRate = gameData.totalPowerRate;
 
-        for (int i = 0; i < this.unitList.Count; i++)
-        {
-            this.unitList[i].RestoreDataFromSave(gameData.passiveUnitDataList);
-        }
+        //for (int i = 0; i < this.unitList.Count; i++)
+        //{
+        //    this.unitList[i].RestoreDataFromSave(gameData.passiveUnitDataList);
+        //}
 
-        UpdateUI();
+        //UpdateUI();
         //for (int i = 0; i < this.unitList.Count; i++)
         //{
         //    this.unitList[i].LoadPassiveUnit();

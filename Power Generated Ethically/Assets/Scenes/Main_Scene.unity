@@ -1643,7 +1643,7 @@ GameObject:
   - component: {fileID: 303979461}
   m_Layer: 0
   m_Name: Trash Fire Script Manager
-  m_TagString: Untagged
+  m_TagString: DataManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4332,7 +4332,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 731594521}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1584124642}
+        m_MethodName: SaveAllData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &731594521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8225,6 +8236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1584124644}
   - component: {fileID: 1584124647}
+  - component: {fileID: 1584124642}
   m_Layer: 0
   m_Name: Script Manager
   m_TagString: Untagged
@@ -8232,6 +8244,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1584124642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584124641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a1ca0abf6d5bf64ab50f6c10ed05e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceManager: {fileID: 1584124647}
 --- !u!4 &1584124644
 Transform:
   m_ObjectHideFlags: 0
@@ -8272,6 +8297,7 @@ MonoBehaviour:
   powerPerSecondText: {fileID: 1269627002}
   ConversationRateText: {fileID: 897469953}
   totalPowerText: {fileID: 721692935}
+  treadmill: {fileID: 1210538894}
   treadmillSpeed: 0
   treadmillPowerConstant: 0.0625
   currencyPerPower: 0
@@ -9651,7 +9677,7 @@ GameObject:
   - component: {fileID: 1860657985}
   m_Layer: 0
   m_Name: Indoor Solar Script Manager
-  m_TagString: Untagged
+  m_TagString: DataManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10456,7 +10482,7 @@ GameObject:
   - component: {fileID: 1923529110}
   m_Layer: 0
   m_Name: Hamster Script Manager
-  m_TagString: Untagged
+  m_TagString: DataManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

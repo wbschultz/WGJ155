@@ -6,14 +6,42 @@ using System.Collections.Generic;
 /**
  * <summary>Class <c>SaveSystem</c> saves and loads game data.</summary>
  */
-public static class SaveSystem
+public class SaveSystem : SingletonBase<SaveSystem>
 {
+    public CoolerCookieClicker resourceManager;
+    List<PassiveUnit> passiveUnits = new List<PassiveUnit>();
+    List<PassiveUpgrade> passiveUpgrades = new List<PassiveUpgrade>();
+
+    public void Start()
+    {
+        GameObject[] dataManagers = GameObject.FindGameObjectsWithTag("DataManager");
+
+        foreach (GameObject dataManager in dataManagers)
+        {
+            // Keep track resource data managers to save/load data
+            PassiveUnit passiveUnit = dataManager.GetComponent<PassiveUnit>();
+            PassiveUpgrade passiveUpgrade = dataManager.GetComponent<PassiveUpgrade>();
+            
+            if (passiveUnit != null && passiveUpgrades != null)
+            {
+                passiveUnits.Add(passiveUnit);
+                passiveUpgrades.Add(passiveUpgrade);
+            }
+        }
+
+        if (PlayerPrefs.GetString("Load_Save", "false") == "true")
+        {
+            // Player wants to load save data
+            this.LoadAllData();
+        } 
+    }
+
     /**
      * <summary>Serialize all of game's data and write to a file</summary>
      * <param name="resources">Game resource tracking data</param>
      * <param name="passiveUnitPropsList">PassiveUnit properties</param>
      */
-    public static void SaveAllData(CoolerCookieClicker resources, List<PassiveUnit> passiveUnitPropsList)
+    public void SaveAllData()
     {
         /**
          * Create binary formatter and setup input stream to write data to. The
@@ -29,7 +57,7 @@ public static class SaveSystem
         {
             // Convert PassiveUnit to serializable class type and write to file
             stream = new FileStream(filePath, FileMode.Create);
-            SaveData gameData = new SaveData(resources, passiveUnitPropsList);
+            SaveData gameData = new SaveData(resourceManager, passiveUnits, passiveUpgrades);
             binaryFormatter.Serialize(stream, gameData);
         }
         finally
@@ -47,7 +75,7 @@ public static class SaveSystem
      * <summary>Deserialize all game data from file and into memory for
      * in game use.</summary>
      */
-    public static SaveData LoadAllData()
+    public void LoadAllData()
     {
         BinaryFormatter binaryFormatter = new BinaryFormatter();
         string filePath = Application.persistentDataPath + "gameData.bin";
@@ -62,17 +90,19 @@ public static class SaveSystem
                 // File exists, open it and read PassiveUnit data
                 UnityEngine.Debug.Log("SaveSystem::LoadPassiveUnit() file exists");
                 stream = new FileStream(filePath, FileMode.Open);
-                SaveData gameData = binaryFormatter.Deserialize(stream) as SaveData;
-                return gameData;
+                SaveData saveData = binaryFormatter.Deserialize(stream) as SaveData;
+
+                this.RestoreDataFromSave(saveData);
             }
             else
             {
                 Debug.LogError("Save file not found in " + filePath);
-                return null;
+                return;
             }
         }
         finally
         {
+            PlayerPrefs.SetString("Load_Save", "false");
             if (stream != null)
             {
                 // Regardless of exceptions, close stream if it exists.
@@ -82,10 +112,29 @@ public static class SaveSystem
     }
 
     /**
+     * <summary>Restore previous save data into current game state</summary>
+     * <param name="saveData">Previous save data</param>
+     */
+    void RestoreDataFromSave(SaveData saveData)
+    {
+        resourceManager.RestoreDataFromSave(saveData);
+
+        foreach (PassiveUnit passiveUnit in this.passiveUnits)
+        {
+            passiveUnit.RestoreDataFromSave(saveData);
+        }
+
+        foreach (PassiveUpgrade passiveUpgrade in this.passiveUpgrades)
+        {
+            passiveUpgrade.RestoreDataFromSave(saveData);
+        }
+    }
+
+    /**
      * <summary>Serialize PassiveUnit data and write to a file.</summary>
      * <param name="passiveUnit">Energy generation upgrade data</param>
      */
-    public static void SavePassiveUnit (PassiveUnitProps passiveUnitProps)
+    public void SavePassiveUnit (PassiveUnitProps passiveUnitProps)
     {
         /**
          * Create binary formatter and setup input stream to write data to. The
@@ -118,7 +167,7 @@ public static class SaveSystem
      * in game use.</summary>
      * <param name="unitType">Unit type name of PassiveUnit file to load</param>
      */
-    public static PassiveUnitData LoadPassiveUnit(string unitType)
+    public PassiveUnitData LoadPassiveUnit(string unitType)
     {
         BinaryFormatter binaryFormatter = new BinaryFormatter();
         string filePath = Application.persistentDataPath + unitType + "Unit.bin";

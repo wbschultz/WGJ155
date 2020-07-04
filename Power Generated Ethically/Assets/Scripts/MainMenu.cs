@@ -17,4 +17,10 @@ public class MainMenu : MonoBehaviour
         print("Game Exit");
         Application.Quit();
     }
+
+    public void LoadGame()
+    {
+        PlayerPrefs.SetString("Load_Save", "true");
+        this.PlayGame();
+    }
 }

@@ -80,4 +80,30 @@ public class PassiveUpgrade : MonoBehaviour
 
         upgrademodifierText.text = powerRateModifier.ToString("F2") + "x";
     }
+
+    /***************************************************************************
+     * Save/Load player upgrade progress
+     ***************************************************************************/
+    public PassiveUpgradeProps getDataToSave()
+    {
+        PassiveUpgradeProps passiveUpgradeProps = new PassiveUpgradeProps(upgradeType, quantity, priceToUpgrade, unitsToUpgrade);
+        return passiveUpgradeProps;
+    }
+
+    public void RestoreDataFromSave(SaveData saveData)
+    {
+        List<PassiveUpgradeData> passiveUpgradeDataList = saveData.passiveUpgradeDataList;
+        for (int i = 0; i < passiveUpgradeDataList.Count; i++)
+        {
+            if (passiveUpgradeDataList[i].upgradeType == this.upgradeType)
+            {
+                PassiveUpgradeData passiveUpgradeData = passiveUpgradeDataList[i];
+                this.quantity = passiveUpgradeData.quantity;
+                this.priceToUpgrade = passiveUpgradeData.priceToUpgrade;
+                break;
+            }
+        }
+
+        UpdateUI();
+    }
 }

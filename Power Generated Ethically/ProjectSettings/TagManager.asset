@@ -8,6 +8,7 @@ TagManager:
   - ground
   - belt_end
   - hurdle
+  - DataManager
   layers:
   - Default
   - TransparentFX
